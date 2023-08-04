@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@font-face {
+  font-family: "Product Sans";
+  src: url("assets/fonts/product-sans/ProductSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Product Sans Bold";
+  src: url("assets/fonts/product-sans/ProductSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Product Sans Italic";
+  src: url("assets/fonts/product-sans/ProductSans-Italic.ttf");
+}
+
+* {
+  font-family: "Product Sans", sans-serif;
+}
