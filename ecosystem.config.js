@@ -11,5 +11,13 @@ module.exports = {
         NODE_ENV: 'production',
       },
     },
+    {
+      name: "frontend",
+      script: "serve",
+      env: {
+        NODE_ENV: "production",
+      },
+      args: "-s build -l 3000",
+    },
   ],
 };
