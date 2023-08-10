@@ -9,10 +9,8 @@ import { toast } from "react-toastify";
 const Contact = () => {
     const form = useRef<any>();
     const [contactForm, setContactForm] = React.useState<any>({
-        firstName: "",
-        lastName: "",
+        fullName: "",
         email: "",
-        phoneNumber: "",
         message: ""
     });
 
@@ -60,10 +58,8 @@ const Contact = () => {
             showToast(state?.errors[0]?.message, "error");
         }
         setContactForm({
-            firstName: "",
-            lastName: "",
+            fullName: "",
             email: "",
-            phoneNumber: "",
             message: ""
         });
         clearInterval(intervalRef.current);
@@ -112,36 +108,19 @@ const Contact = () => {
                                     sendContactForm();
                                 }, 1000);
                             }}>
-                            <div className="flex sm:flex-row flex-col items-center w-full justify-between">
-                                <Input
-                                    placeholder="First Name*"
-                                    value={contactForm.firstName}
-                                    onChange={(e) => handleChange(e)}
-                                    name="firstName"
-                                    containerStyle="w-full"
-                                    wrapperStyle="w-full"
-                                />
-                                <Input
-                                    placeholder="Last Name"
-                                    value={contactForm.lastName}
-                                    onChange={(e) => handleChange(e)}
-                                    name="lastName"
-                                    containerStyle="w-full"
-                                    wrapperStyle="w-full sm:ml-4 ml-0 sm:mt-0 mt-6"
-                                />
-                            </div>
+                            <Input
+                                placeholder="Full Name*"
+                                value={contactForm.fullName}
+                                onChange={(e) => handleChange(e)}
+                                name="fullName"
+                                containerStyle="w-full"
+                                wrapperStyle="w-full"
+                            />
                             <Input
                                 placeholder="Email*"
                                 value={contactForm.email}
                                 onChange={(e) => handleChange(e)}
                                 name="email"
-                                containerStyle="w-full mt-6"
-                            />
-                            <Input
-                                placeholder="Phone Number (optional)"
-                                value={contactForm.phoneNumber}
-                                onChange={(e) => handleChange(e)}
-                                name="phoneNumber"
                                 containerStyle="w-full mt-6"
                             />
                             <textarea
