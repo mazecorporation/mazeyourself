@@ -1,12 +1,15 @@
-import React from "react";
+import React,{useState } from "react";
 import Navbar from "../components/Navbar";
 import { useHistory } from "react-router-dom";
 import { ReactComponent as PlayIcon } from "../assets/images/icons/play.svg";
 import Maskgroup from "../assets/images/mask-group.png";
 import Hero from "../assets/images/hero.png";
 import Footer from "../components/Footer";
+import SubscriptionModal from '../components/SubscriptionModal';
 
 const Home = () => {
+  const [showModal, setShowModal] = useState(false);
+
   const history = useHistory();
   const faqs = [
     "What's the closest club to me?",
@@ -18,6 +21,14 @@ const Home = () => {
     "Explore profile pages of clubs with essential information",
     "Embedded Google map for directions"
   ];
+
+  const handleExploreClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div>
@@ -37,7 +48,7 @@ const Home = () => {
           <div className="flex flex-row items-center mt-8 mb-36">
             <button
               className="rounded-lg border-[1px] border-white bg-black text-white w-full py-3 px-8"
-              onClick={() => history.push("/explore")}>
+              onClick={() => handleExploreClick()}>
               Explore
             </button>
             <button
@@ -150,6 +161,9 @@ const Home = () => {
 
         <Footer />
       </div>
+
+      {showModal && <SubscriptionModal onClose={handleCloseModal} />}
+
     </div>
   );
 };
